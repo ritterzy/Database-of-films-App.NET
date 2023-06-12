@@ -1,0 +1,28 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using EXAM.DAL.Models
+@model IEnumerable<Genre>
+
+<h1>Genres List</h1>
+<table>
+    <tr>
+        <th>
+            <a asp-action="GetGenres" asp-route-sortOrder="@ViewBag.IdSort">
+                Id
+            </a>
+        </th>
+        <th>
+            <a asp-action="GetGenres" asp-route-sortOrder="@ViewBag.NameSort">
+                Name
+            </a>
+        </th>
+        <th>
+            <a asp-action="GetGenres" asp-route-sortOrder="@ViewBag.MovieSort">
+                Movie
+            </a>
+        </th>
+    </tr>
+    @foreach (var genre in Model)
+    {
+        <tr><td>@genre.Id</td><td>@genre.Name</td><td>@genre.Movies</td></tr>
+    }
+</table>
